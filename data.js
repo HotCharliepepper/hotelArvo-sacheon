@@ -1,0 +1,12 @@
+/* Public display data for this internal design study. Operating facts are intentionally limited. */
+window.ARVO = {
+  address: '경상남도 사천시 사천읍 진삼로 1477-47',
+  initialRoom: 'signature',
+  rooms: {
+    signature: {title:'Signature',korean:'시그니처 4인',eyebrow:'A LITTLE MORE ROOM TO REST',description:'소파에 앉아 이야기를 나누다가,\n침실로 건너가 하루를 마무리하세요.\n머무는 시간에도 여백이 생깁니다.',features:['침실과 거실','두 개의 침대','욕조가 있는 욕실'],fine:'이용 인원과 포함 시설은 선택한 예약 상품에서 확인해 주세요.',photos:[{src:'assets/images/signature-bedroom.webp',alt:'시그니처 침실의 두 개의 침대와 창가',caption:'침실과 거실, 쉬는 장면이 나뉘는 공간.'},{src:'assets/images/signature-lounge.webp',alt:'시그니처 거실의 주황색 소파와 우드 벽',caption:'시그니처 객실 · 이야기를 나누는 거실.'},{src:'assets/images/signature-connection.webp',alt:'시그니처 거실과 침실이 이어지는 구조',caption:'시그니처 객실 · 거실에서 침실로.'},{src:'assets/images/signature-bath.webp',alt:'시그니처 욕실의 조적 욕조와 목재 문',caption:'시그니처 객실 · 욕조가 있는 욕실.'}]},
+    twin: {title:'Twin',korean:'트윈 계열',eyebrow:'TOGETHER, WITH ROOM FOR YOU',description:'하루의 이야기는 함께 나누고,\n잠드는 자리는 각자의 편안함으로.\n동행의 리듬을 생각하는 선택.',features:['두 개의 침대','나란히 놓인 잠자리','은은한 헤드보드 조명'],fine:'트윈·트윈 VIP의 침대 구성과 이용 인원은 예약 채널에서 비교해 주세요.',photos:[{src:'assets/images/twin-room.webp',alt:'두 개의 침대가 나란히 놓인 트윈 계열 객실',caption:'함께 머물면서, 각자의 잠자리를.'}]},
+    pc: {title:'2PC',korean:'2PC 객실',eyebrow:'YOUR EVENING, YOUR WAY',description:'나란히 앉아 좋아하는 것을 즐기고,\n피곤해지면 바로 쉬어가는 밤.\n오늘의 마무리는 내 방식대로.',features:['두 개의 PC 데스크','침대와 휴식 자리','욕조가 있는 욕실'],fine:'장비 사양과 이용 조건은 선택한 예약 상품에서 확인해 주세요.',photos:[{src:'assets/images/pc-room.webp',alt:'침대와 PC 두 대의 데스크가 있는 2PC 객실 전경',caption:'2PC 객실 · 즐기는 시간과 쉬는 시간.'},{src:'assets/images/pc-desk.webp',alt:'두 개의 모니터와 의자가 나란히 놓인 2PC 데스크',caption:'2PC 객실 · 나란히 앉는 데스크.'},{src:'assets/images/pc-bed.webp',alt:'2PC 객실의 침대와 헤드보드 조명',caption:'2PC 객실 · 하루를 마무리하는 침실.'},{src:'assets/images/pc-bath.webp',alt:'2PC 객실의 욕조와 샤워 공간',caption:'2PC 객실 · 욕조와 샤워 공간.'}]}
+  },
+  gallery:[{src:'assets/images/signature-lounge.webp',alt:'시그니처 거실의 주황색 소파와 우드 벽',caption:'이야기가 머무는 곳 · 시그니처 거실'},{src:'assets/images/light-detail.webp',alt:'목재 벽의 테라코타 아치 조명',caption:'빛으로 남는 인상 · 아르보 디테일'},{src:'assets/images/pc-room.webp',alt:'침대와 PC 데스크가 함께 있는 2PC 객실',caption:'취향대로 쉬는 밤 · 2PC 객실'},{src:'assets/images/arrival.webp',alt:'아르보호텔 현관과 사인',caption:'하루의 새로운 시작 · 현관'},{src:'assets/images/signature-bath.webp',alt:'시그니처 객실의 조적 욕조와 목재 문',caption:'조금 더 느린 저녁 · 시그니처 욕실'}],
+  hero:{lounge:{src:'assets/images/signature-lounge.webp',alt:'시그니처 객실 거실'},bedroom:{src:'assets/images/signature-bedroom.webp',alt:'시그니처 객실 침실'}}
+};
