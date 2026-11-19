@@ -1,0 +1,14 @@
+{
+  "name": "arvo-hotel-r5-3-editorial-refinement-study",
+  "version": "5.3.0",
+  "private": true,
+  "type": "module",
+  "description": "ARVO HOTEL R5.3 typography, photo treatment and motion refinement, preserved R5.1 functionality (no backend)",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build:standalone": "node scripts/build-standalone.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

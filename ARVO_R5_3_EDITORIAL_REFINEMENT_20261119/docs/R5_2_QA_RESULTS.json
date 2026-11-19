@@ -1,0 +1,249 @@
+{
+  "layout": [
+    {
+      "viewport": 1440,
+      "docWidth": 1440,
+      "heroBg": "rgb(247, 243, 235)",
+      "displayWeight": "600",
+      "copy": [
+        81,
+        287,
+        683,
+        442,
+        764,
+        728
+      ],
+      "photo": [
+        778,
+        132,
+        582,
+        672,
+        1359,
+        804
+      ],
+      "display": [
+        81,
+        331,
+        683,
+        238,
+        764,
+        569
+      ],
+      "cta": [
+        81,
+        671,
+        683,
+        57,
+        764,
+        728
+      ],
+      "marquee": "ticker",
+      "width": 1440,
+      "overlap": false
+    },
+    {
+      "viewport": 1366,
+      "docWidth": 1366,
+      "heroBg": "rgb(247, 243, 235)",
+      "displayWeight": "600",
+      "copy": [
+        76,
+        225,
+        647,
+        428,
+        724,
+        653
+      ],
+      "photo": [
+        738,
+        132,
+        552,
+        540,
+        1290,
+        672
+      ],
+      "display": [
+        76,
+        269,
+        647,
+        227,
+        724,
+        496
+      ],
+      "cta": [
+        76,
+        596,
+        647,
+        57,
+        724,
+        653
+      ],
+      "marquee": "ticker",
+      "width": 1366,
+      "overlap": false
+    },
+    {
+      "viewport": 850,
+      "docWidth": 850,
+      "heroBg": "rgb(247, 243, 235)",
+      "displayWeight": "600",
+      "copy": [
+        42,
+        158,
+        766,
+        395,
+        808,
+        553
+      ],
+      "photo": [
+        42,
+        586,
+        766,
+        468,
+        808,
+        1054
+      ],
+      "display": [
+        42,
+        190,
+        766,
+        221,
+        808,
+        411
+      ],
+      "cta": [
+        42,
+        496,
+        766,
+        57,
+        808,
+        553
+      ],
+      "marquee": "ticker",
+      "width": 850,
+      "overlap": false
+    },
+    {
+      "viewport": 390,
+      "docWidth": 390,
+      "heroBg": "rgb(247, 243, 235)",
+      "displayWeight": "600",
+      "copy": [
+        22,
+        147,
+        346,
+        281,
+        368,
+        428
+      ],
+      "photo": [
+        22,
+        455,
+        346,
+        277,
+        368,
+        732
+      ],
+      "display": [
+        22,
+        179,
+        346,
+        130,
+        368,
+        309
+      ],
+      "cta": [
+        22,
+        376,
+        346,
+        52,
+        368,
+        428
+      ],
+      "marquee": "ticker",
+      "width": 390,
+      "overlap": false
+    },
+    {
+      "viewport": 320,
+      "docWidth": 320,
+      "heroBg": "rgb(247, 243, 235)",
+      "displayWeight": "600",
+      "copy": [
+        17,
+        136,
+        286,
+        256,
+        303,
+        392
+      ],
+      "photo": [
+        17,
+        414,
+        286,
+        250,
+        303,
+        664
+      ],
+      "display": [
+        17,
+        168,
+        286,
+        107,
+        303,
+        275
+      ],
+      "cta": [
+        17,
+        340,
+        286,
+        52,
+        303,
+        392
+      ],
+      "marquee": "ticker",
+      "width": 320,
+      "overlap": false
+    }
+  ],
+  "smoke_interactions": [
+    {
+      "width": 1440,
+      "ready": true,
+      "hero_switch": true,
+      "pc_selected": "true",
+      "room_title": "2PC 객실",
+      "booking_open": true,
+      "booking_closed": true,
+      "pageErrors": [],
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "ready": true,
+      "hero_switch": true,
+      "pc_selected": "true",
+      "room_title": "2PC 객실",
+      "booking_open": true,
+      "booking_closed": true,
+      "menu_open": "true",
+      "menu_closed": "false",
+      "pageErrors": [],
+      "horizontal_overflow": false
+    },
+    {
+      "width": 320,
+      "ready": true,
+      "hero_switch": true,
+      "pc_selected": "true",
+      "room_title": "2PC 객실",
+      "booking_open": true,
+      "booking_closed": true,
+      "menu_open": "true",
+      "menu_closed": "false",
+      "pageErrors": [],
+      "horizontal_overflow": false
+    }
+  ],
+  "scope": "static fixture + functional lightweight image fixture; exact real 4MB standalone live browser QA pending"
+}
