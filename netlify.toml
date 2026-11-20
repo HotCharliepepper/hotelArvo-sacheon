@@ -2,6 +2,7 @@
 # Site: arvosacheon.netlify.app
 # Connected repo: HotCharliepepper/hotelArvo-sacheon
 # Keep old repository-root files untouched; publish only this folder.
+
 [build]
-  publish = "site"
+  publish = "."
   command = ""
