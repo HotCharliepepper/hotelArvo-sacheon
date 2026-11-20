@@ -247,7 +247,16 @@
     }));
     $('#room-gallery-button')?.setAttribute('aria-label', `${room.korean} 사진 크게 보기`);
     renderRoomPhoto(0);
-    if (announce) setText('#room-announcement', `${room.korean}의 사진과 설명을 표시합니다.`);
+    if (announce) {
+      setText('#room-announcement', `${room.korean}의 사진과 설명을 표시합니다.`);
+      // Keep the selected card in view on a narrow horizontal tab carousel.
+      const chosen = tabs.find(tab => tab.dataset.room === id);
+      const scroller = chosen?.parentElement;
+      if (chosen && scroller && window.matchMedia('(max-width: 850px)').matches) {
+        const target = chosen.offsetLeft - scroller.offsetLeft - (scroller.clientWidth - chosen.clientWidth) / 2;
+        scroller.scrollTo({left: Math.max(0, target), behavior: scrollBehavior()});
+      }
+    }
   }
 
   tabs.forEach((tab, index) => {
@@ -286,9 +295,10 @@
   $$('[data-booking]').forEach(button => {
     button.addEventListener('click', () => {
       const selected = button.hasAttribute('data-selected-room') && data.rooms[currentRoom];
+      const allRooms = button.hasAttribute('data-all-rooms');
       setText('#booking-selection', selected
-        ? `마음에 둔 객실 · ${data.rooms[currentRoom].korean}`
-        : '아르보호텔 객실을 살펴보세요.');
+        ? `현재 선택한 객실 · ${data.rooms[currentRoom].korean}`
+        : allRooms ? '전체 8개 판매 유형 · 객실명은 예약 채널에서 다시 확인' : '아르보호텔 · 날짜와 요금을 확인해 주세요.');
       openDialog(bookingDialog, button);
     });
   });
@@ -425,6 +435,44 @@
     }
   });
 
+  // R5.5 location UX: Naver-first links and a user-triggered Google map.
+  // A search URL is NOT treated as a verified hotel pin or route destination.
+  const placeConfig = window.ARVO_SITE || {};
+  const allowedUrl = (raw, hosts, prefix) => {
+    if (typeof raw !== 'string' || !raw) return null;
+    try {
+      const u = new URL(raw);
+      if (u.protocol !== 'https:' || !hosts.includes(u.hostname) || !u.pathname.startsWith(prefix)) return null;
+      return u.href;
+    } catch { return null; }
+  };
+  const naverMapUrl = allowedUrl(placeConfig.naverPlaceUrl, ['map.naver.com', 'm.map.naver.com'], '/')
+    || allowedUrl(placeConfig.naverSearchUrl, ['map.naver.com'], '/p/search/');
+  const googleSearchUrl = allowedUrl(placeConfig.googlePlaceUrl, ['www.google.com', 'maps.google.com'], '/maps/')
+    || allowedUrl(placeConfig.googleSearchUrl, ['www.google.com', 'maps.google.com'], '/maps/');
+  for (const link of $$('a#naver-map-search, .address-actions a')) {
+    if (naverMapUrl) link.href = naverMapUrl;
+  }
+  if (googleSearchUrl) $('#google-map-search')?.setAttribute('href', googleSearchUrl);
+  const googleDetails = $('#google-map-details');
+  const googleSlot = $('#google-map-frame-slot');
+  let googleMapCreated = false;
+  googleDetails?.addEventListener('toggle', () => {
+    if (!googleDetails.open || googleMapCreated || !googleSlot) return;
+    const verified = allowedUrl(placeConfig.googleEmbedUrl, ['www.google.com', 'maps.google.com'], '/maps/embed');
+    const preview = allowedUrl(placeConfig.googleAddressPreviewUrl, ['maps.google.com'], '/maps');
+    const mapSrc = verified || preview;
+    if (!mapSrc) { googleSlot.textContent = '현재 지도 미리보기를 열 수 없습니다. Google 지도 검색 버튼을 이용해 주세요.'; return; }
+    const frame = document.createElement('iframe');
+    frame.title = verified ? '아르보호텔 Google 지도 (업체 핀 확인 완료)' : '아르보호텔 주소 검색 기반 Google 지도 · 업체 핀 미확인';
+    frame.src = mapSrc;
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.setAttribute('allowfullscreen', '');
+    googleSlot.replaceChildren(frame);
+    googleMapCreated = true;
+  });
+
   // The hero changes only on request; no timer or automatic slideshow.
   const heroImage = $('#hero-image');
   const heroChoices = $$('.scene-choice[data-hero]');
@@ -433,11 +481,15 @@
     if (!photo) return;
     changeImage(heroImage, photo, {
       keepOnError: true,
-      onLoad: () => heroChoices.forEach(choice => {
-        const selected = choice === button;
-        choice.classList.toggle('active', selected);
-        choice.setAttribute('aria-pressed', String(selected));
-      })
+      onLoad: () => {
+        const media = $('.hero-media');
+        if (media) media.dataset.scene = button.dataset.hero;
+        heroChoices.forEach(choice => {
+          const selected = choice === button;
+          choice.classList.toggle('active', selected);
+          choice.setAttribute('aria-pressed', String(selected));
+        });
+      }
     });
   }));
 
